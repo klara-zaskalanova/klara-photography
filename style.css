@@ -193,9 +193,8 @@ html {
   /* Gallery: full · half · half · full · half · half */
   .gallery {
     columns: unset;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    align-items: start;
+    display: flex;
+    flex-direction: column;
     gap: var(--gap);
     padding: 8px 0 0;
   }
@@ -203,6 +202,7 @@ html {
   .gallery-item {
     margin-bottom: 0;
     overflow: hidden;
+    width: 100%;
   }
 
   .gallery-item img {
@@ -213,16 +213,6 @@ html {
 
   .gallery-item.is-hero img {
     height: auto;
-  }
-
-  /* 1st of every 3-group = full width */
-  .gallery-item:nth-child(3n + 1) {
-    grid-column: 1 / -1;
-  }
-
-  /* Single item (e.g. architecture): full width */
-  .gallery-item:only-child {
-    grid-column: 1 / -1;
   }
 
   /* Footer */
