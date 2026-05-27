@@ -26,7 +26,7 @@ html {
   display: grid;
   grid-template-columns: 1fr auto 1fr;
   align-items: center;
-  padding: 64px 80px;
+  padding: 64px max(80px, calc((100% - 1100px) / 2));
   gap: 40px;
   min-height: 52vh;
 }
@@ -120,8 +120,6 @@ html {
 
 .gallery-item:only-child {
   column-span: all;
-  max-width: 600px;
-  margin-inline: auto;
 }
 
 .gallery-item img {
@@ -222,8 +220,6 @@ html {
   .gallery-item:only-child {
     grid-column: 1 / -1;
     aspect-ratio: 4 / 3;
-    max-width: unset;
-    margin-inline: 0;
   }
 
   /* Footer */

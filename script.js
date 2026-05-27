@@ -44,6 +44,8 @@ function applyHeroIfLandscape() {
 }
 
 function render() {
+  const savedScroll = window.scrollY;
+
   const items = activeFilter === 'all'
     ? photos
     : photos.filter(p => p.cat === activeFilter);
@@ -61,6 +63,7 @@ function render() {
   });
 
   applyHeroIfLandscape();
+  requestAnimationFrame(() => window.scrollTo(0, savedScroll));
 }
 
 document.querySelectorAll('.filter-btn').forEach(btn => {
