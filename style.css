@@ -28,7 +28,7 @@ html {
   align-items: center;
   padding: 64px max(80px, calc((100% - 1100px) / 2));
   gap: 40px;
-  min-height: 52vh;
+  min-height: 100vh;
 }
 
 .hero__name,
