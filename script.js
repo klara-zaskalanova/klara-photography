@@ -34,13 +34,7 @@ let activeFilter = 'landscape';
 function applyHeroIfLandscape() {
   if (activeFilter !== 'landscape') return;
   const firstItem = gallery.querySelector('.gallery-item');
-  if (!firstItem) return;
-  const img = firstItem.querySelector('img');
-  if (!img) return;
-  const check = () => {
-    if (img.naturalWidth > img.naturalHeight) firstItem.classList.add('is-hero');
-  };
-  img.complete && img.naturalWidth ? check() : img.addEventListener('load', check, { once: true });
+  if (firstItem) firstItem.classList.add('is-hero');
 }
 
 function render() {
@@ -63,7 +57,7 @@ function render() {
   });
 
   applyHeroIfLandscape();
-  requestAnimationFrame(() => window.scrollTo(0, savedScroll));
+  requestAnimationFrame(() => requestAnimationFrame(() => window.scrollTo(0, savedScroll)));
 }
 
 document.querySelectorAll('.filter-btn').forEach(btn => {
